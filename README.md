@@ -290,7 +290,7 @@ public interface UserMapper extends BaseMapper<User> {
 
 进入测试页面，测试get接口，得到如下响应（与数据表数据对应，操作成功）。
 
-![](../images/redisdemo1.png)
+![](https://img-blog.csdnimg.cn/8142ee2f8d4a45f0a754c5b0d9ecfc1b.png)
 
 <hr>
 
@@ -300,7 +300,7 @@ public interface UserMapper extends BaseMapper<User> {
 
 使用Redis缓存的最大好处无非就两点：**提升系统响应速度 和 降低数据库交互压力**。redis的数据缓存到内存中，访问速度特别快。看一下使用redis缓存和不使用redis缓存（以下分析只考虑数据缓存到redis和数据库中）：
 
-![](../images/redisdemo3.png)
+![](https://img-blog.csdnimg.cn/084a549ef5f54440b9db57f89e98f0ea.png)
 
 **有redis做缓存**
 
@@ -410,13 +410,13 @@ public Result get(@PathVariable("id") Integer id){
 
 之后启动项目，启动redis服务
 
-![](../images/redis3.png)
+![](https://img-blog.csdnimg.cn/27581d40b6f841a9a4c01d6c8bc79aa3.png)
 
 访问 `http://localhost:8082/swagger-ui/index.html`（这里使用swagger默认配置），测试get接口，测试同一个id两次。查看控制台，第一次走数据库获取，第二次直接从redis获取了。
 
 redis数据如图：
 
-![](../images/redisdemo4.png)
+![](https://img-blog.csdnimg.cn/23a4250175dd4133ad4d29b840726854.png)
 
 过期时间设置可在application.yml中配置（只能设置所有的，需要设置不同key不同有效期，就得使用另一种缓存策略）
 
@@ -693,7 +693,7 @@ public Result get(@PathVariable("id") Integer id){
 
 之后启动项目，启动redis，访问 `http://localhost:8082/swagger-ui/index.html`（这里使用swagger默认配置），测试get接口，测试同一个id两次：
 
-![](../images/redisdemo2.png)
+![](https://img-blog.csdnimg.cn/0d9740f9cd8640f0895dd6f767cb0c55.png)
 
 测试可以发现，两次获取id=6的数据，在mybatis-plus打印的sql语句中，只执行了一次sql，而第二次是从redis缓存里面获取到了数据（过期时间是我们所设置的，默认时间也是存在）。
 
@@ -732,7 +732,7 @@ Serializable序列化，是将Java对象转换成字节流的过程。JAVA中，
 
 RedisSerializer是redis数据的序列化接口，它提供了以下几种数据序列化策略：
 
-![](../images/redisdemo6.png)
+![](https://img-blog.csdnimg.cn/5a41634a6a3d4b1a949ebe4d578c91d3.png)
 
 具体的用途这里不赘述，有业务需求的时候，直接去查询开发者手册选择对应的序列化策略即可。
 

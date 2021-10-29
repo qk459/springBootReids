@@ -1,12 +1,10 @@
 package com.pdh.entity;
 
-import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import nonapi.io.github.classgraph.json.Id;
-import org.apache.commons.lang3.StringUtils;
 
 import java.io.Serializable;
 

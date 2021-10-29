@@ -706,7 +706,7 @@ public Result get(@PathVariable("id") Integer id){
 
 RedisAutoConfiguration类实现了redisTemplate和stringRedisTemplate的自动注入，直接获取就能使用。
 
-![](../images/redisdemo5.png)
+![](https://img-blog.csdnimg.cn/f3c18716c86b472e932afebfe50b3a36.png)
 
 **@ConditionalOnMissingBean注解的表示：如果Spring容器中有了RedisTemplate对象，这个自动配置的RedisTemplate不会实例化。因此我们可以直接自己写个配置类，配置RedisTemplate。**另外还有很多配置信息都可以自动化配置（如序列化策略、连接工厂等）。
 
